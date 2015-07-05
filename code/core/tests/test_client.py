@@ -8,7 +8,7 @@ class ApiClientTestCase(TestCase):
 
     @patch('requests.get')
     @patch('requests.models.Response')
-    def test_browse(self, mock_response, mock_get):
+    def test_browse_manufacturers(self, mock_response, mock_get):
         mock_get.return_value = mock_response
         mock_response.json.return_value = {"results": [
             {"term": "manufacturing B", "count": "10"},
@@ -17,6 +17,18 @@ class ApiClientTestCase(TestCase):
         results = client.browse('manufacturers')
         self.assertEqual(results, [{'count': '20', 'term': 'manufacturing A'},
                                    {'count': '10', 'term': 'manufacturing B'}])
+
+    @patch('requests.get')
+    @patch('requests.models.Response')
+    def test_browse_others(self, mock_response, mock_get):
+        mock_get.return_value = mock_response
+        mock_response.json.return_value = {"results": [
+            {"term": "label B", "count": "10"},
+            {"term": "label A", "count": "20"}]}
+        client = ApiClient()
+        results = client.browse('labels')
+        self.assertEqual(results, [{'count': '10', 'term': 'label B'},
+                                   {'count': '20', 'term': 'label A'}])
 
     @patch('core.api_client.ApiClient.get_sub_data')
     def test_search_labels(self, mock_get_sub_data):
@@ -72,8 +84,9 @@ class ApiClientTestCase(TestCase):
     @patch('requests.models.Response')
     def test_get_age_sex(self, mock_response, mock_get):
         mock_get.return_value = mock_response
-        mock_response.json.return_value = {"meta": {"results": {"total": "1"}}}
         client = ApiClient()
+
+        mock_response.json.return_value = {"meta": {"results": {"total": "1"}}}
         result = client.get_age_sex('labels', 'filter', 'param')
         self.assertEquals(result, '[{"data": ["1"], "name": "Male"}, {"data": ["1"], "name": "Female"}]')
 
@@ -90,6 +103,19 @@ class ApiClientTestCase(TestCase):
         client = ApiClient()
         sub_data = client.get_sub_data('', 1)
         self.assertIsNone(sub_data)
+
+    @patch('requests.get')
+    @patch('requests.models.Response')
+    def test_get_count_data(self, mock_response, mock_get):
+        mock_get.return_value = mock_response
+        mock_response.json.return_value = {"results": {"total": "1"}}
+        client = ApiClient()
+        result = client.get_count_data("http://url")
+        self.assertEquals(result, {"total": "1"})
+
+        mock_response.json.return_value = {"error": "some error"}
+        result = client.get_count_data("http://url")
+        self.assertEquals(result, None)
 
 
 class ApiResultTestCase(TestCase):
@@ -349,3 +375,10 @@ class ApiResultTestCase(TestCase):
         result = ApiResult(test_dictionary)
         meta, results = result.clean_enforcements()
         self.assertEquals(meta['total'], 3769)
+
+    def test_male_or_female(self):
+        result = ApiResult({})
+        self.assertEquals(result.male_or_female("1"), "Male")
+        self.assertEquals(result.male_or_female("2"), "Female")
+        self.assertEquals(result.male_or_female("0"), "Unknown")
+        self.assertEquals(result.male_or_female("x"), None)

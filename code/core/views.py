@@ -104,19 +104,6 @@ def search_labels(request):
     return render(request, 'core/details_drug_labels.html', data)
 
 
-def search_label_events(request):
-    """
-    Search events for a given drug label
-    :param request:
-    :return: json response
-    """
-    client = ApiClient()
-    query_term = request.GET.get('q')
-    page = request.GET.get('page', '1')
-    data = client.search_labels(query_term, int(page))
-    return HttpResponse(data, content_type='application/json')
-
-
 def search_events(request):
     """
     Search events api

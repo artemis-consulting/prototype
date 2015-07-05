@@ -54,6 +54,7 @@ PARAMETER_MAPPINGS = {
 # TODO: we need to limit the number of results returned since the API only supports 5000 or less
 # TODO: Create a wrapper around requests that customizes error handling
 
+
 class ApiClient(object):
     """
     API client code for consuming FDA opendata apis
@@ -251,7 +252,7 @@ class ApiClient(object):
         self.logger.debug("url: %s", query_url)
         count_json = requests.get(query_url).json()
         if 'error' in count_json:
-            self.logger.error("Error getting at url %s: %s", query_url, count_json['message'])
+            self.logger.error("Error getting at url %s: %s", query_url, count_json['error'])
             return None
         resp = count_json.get('results')
         return resp
@@ -391,16 +392,12 @@ class ApiResult(object):
             return "No"
 
     def male_or_female(self, value):
-        try:
-            value = int(value)
-            if value == 1:
-                return 'Male'
-            elif value == 2:
-                return 'Female'
-            elif value == 0:
-                return 'Unknown'
-        except ValueError:
-            return None
+        if value == "1":
+            return 'Male'
+        elif value == "2":
+            return 'Female'
+        elif value == "0":
+            return 'Unknown'
 
     def format_date(self, value):
         """
