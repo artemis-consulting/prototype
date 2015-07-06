@@ -74,13 +74,19 @@
             title: {
                 text: 'Enforcement Reports By State'
             },
+            subtitle: {
+                text: 'Click legend to filter states by count',
+                style: {
+                    fontStyle: 'italic'
+                }
+            },
             legend: {
                 layout: 'horizontal',
                 borderWidth: 0,
                 backgroundColor: 'rgba(255, 255, 255, 0.85)',
                 floating: true,
                 verticalAlign: 'top',
-                y: 25,
+                y: 45,
                 labelFormatter: function () {
                     if (this.to === 0) {
                         return '0';
