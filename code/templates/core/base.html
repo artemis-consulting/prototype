@@ -42,7 +42,7 @@
 <div class="container">
     <header class="fdahead">
     	<button class="fdahead-nav-toggle"><span>show navigation</span></button>
-		<span class="fdahead-logo"><a href="/"><img title="Official FDA Logo" width="92" height="38" alt="" src="{% static "images/fda-logo.png" %}"> <span>Drug Monitor</span></a></span>
+		<span class="fdahead-logo"><a href="{% url 'homepage' %}"><img title="Official FDA Logo" width="92" height="38" alt="" src="{% static "images/fda-logo.png" %}"> <span>Drug Monitor</span></a></span>
 		<nav class="fdahead-nav">
 			<ul class="">
 				<li class="one"><a href="{% url 'browse_labels' %}">Drug Names</a> </li>
