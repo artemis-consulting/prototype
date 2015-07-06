@@ -11,7 +11,7 @@
     <target name="init">
         <tstamp/>
 
-        <property name='maincssfile' value='locstandard-1.0.css' />
+        <property name='maincssfile' value='style-1.0.css' />
 
         <property
             name="yui-compressor.jar"
