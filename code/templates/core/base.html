@@ -30,6 +30,12 @@
     <!-- <link href="{% static "css/style.css" %}" type='text/css' rel="stylesheet"/> -->
     <!-- endif -->
 
+    <!-- github ribbon css -->
+    <link rel="stylesheet" href="{% static "css/gh-fork-ribbon.min.css" %}" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="{% static "css/gh-fork-ribbon.ie.min.css" %}" />
+    <![endif]-->
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -112,6 +118,13 @@
 
         <p>&copy; Copyright 2015 Artemis Consulting, Inc.</p>
 	</footer><!-- end footer -->
+
+    <!-- github fork ribbon -->
+    <div id="github" class="github-fork-ribbon-wrapper right-bottom">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/artemis-consulting">Fork me on GitHub</a>
+        </div>
+    </div>
 
     <script>
         {# django url variables for search bar #}
