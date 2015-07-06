@@ -168,6 +168,13 @@
 
     $('#state-list-trigger').click(function() {
        $('#stateList').toggle();
+         if ($('#stateList').css('display') =='none') {
+            $('#state-list-trigger').text('table format');
+        }
+        else {
+            $('#state-list-trigger').text('map format');
+        }
+
        return false;
     });
 

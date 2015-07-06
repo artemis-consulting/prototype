@@ -193,6 +193,12 @@
 
     $('#adverse-table-trigger').click(function() {
        $('#adverseTable').toggle();
+        if ($('#adverseTable').css('display') =='none') {
+            $('#adverse-table-trigger').text('table format');
+        }
+        else {
+            $('#adverse-table-trigger').text('chart format');
+        }
        return false;
     });
 
