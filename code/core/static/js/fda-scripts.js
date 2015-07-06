@@ -152,8 +152,24 @@ $(document).ready(function(){
                 }
             }
         });
-
     }
+
+    // remain on tab when page changes
+    $('.fda-pagination li a').click(function(e){
+        var newdiv = window.location.hash;
+        var href = $(this).attr('href');
+        e.preventDefault();
+        window.location = $(this).attr('href') + newdiv;
+    });
+
+    // display appropriate tab
+    $('.ui-tabs-nav li a').click(function(e){
+        e.preventDefault();
+        var newdiv = $(this).attr('href');
+        window.location.hash = newdiv;
+        $('.fda-tabs-interface li').removeClass('active');
+        $(this).parent('li').addClass('active');
+        $('.contents div').hide();
+        $(newdiv).show()
+    });
 });
-
-
