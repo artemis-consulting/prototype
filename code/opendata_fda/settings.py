@@ -18,31 +18,15 @@ MANAGERS = ADMINS
 if 'VCAP_SERVICES' in os.environ and 'elephantsql' in os.environ['VCAP_SERVICES']:
     # This section used for PWS elephantsql service
     DATABASES = {'default': dj_database_url.config()}
-    #elephantsql_service = json.loads(os.environ['VCAP_SERVICES'])['elephantsql'][0]
-    #uri = elephantsql_service['credentials']['uri']
-    #pattern = re.compile('postgres://(\w*):(\w*)@([.\w]*):(\d{4})')
-    #credentials = pattern.match(uri)
-
-    #DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-    #        'NAME': elephantsql_service['name'],                      # Or path to database file if using sqlite3.
-    #        # The following settings are not used with sqlite3:
-    #        'USER': credentials.group(1),
-    #        'PASSWORD': credentials.group(2),
-    #        'HOST': credentials.group(3),                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-    #        'PORT': credentials.group(4),                      # Set to empty string for default.
-    #    }
-    #}
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
             'NAME': 'prototype',                      # Or path to database file if using sqlite3.
             # The following settings are not used with sqlite3:
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            'USER': 'proto_user',
+            'PASSWORD': 'proto_pass',
+            'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
             'PORT': '',                      # Set to empty string for default.
         }
     }
@@ -221,5 +205,4 @@ FDA_DRUG_API_EVENT_URL = "https://api.fda.gov/drug/event.json"  # adverse events
 FDA_DRUG_API_LABEL_URL = "https://api.fda.gov/drug/label.json"  # drug labeling
 FDA_DRUG_API_ENFORCEMENT_URL = "https://api.fda.gov/drug/enforcement.json"  # drug enforcement reports
 RESULTS_PER_PAGE = 10
-# TODO: add api key
-# FDA_DRUG_API_KEY = ""
+FDA_DRUG_API_KEY = "1h0LbxhkfR2Ac6wiNrWftuB4ARZywW7pYEaH2frd"
