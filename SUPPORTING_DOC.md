@@ -111,19 +111,19 @@ Unit testing reduces the amount of bugs that get into the code and potentially i
 Product Roadmap/Release Strategy
 --------------------------------
 We followed the following roadmap for this project:
-* R1
--	Initial UI
--	Deployment of Drug Browse and Detail pages
--	Deployment of Adverse event Browse and Detail pages
--	Deployment of Enforcement action Browse and Detail pages
--        Defect fixes
-* R2
--	Search
--	Manufacturer pages
--        Defect fixes
-* R3
--	Final UI updates
--        Defect fixes
+* R1:
+	Initial UI
+	Deployment of Drug Browse and Detail pages
+	Deployment of Adverse event Browse and Detail pages
+	Deployment of Enforcement action Browse and Detail pages
+        Defect fixes
+* R2:
+ 	Search
+ 	Manufacturer pages
+        Defect fixes
+* R3:
+	Final UI updates
+        Defect fixes
 
 Section-pool2-Scrum
 -------------------
