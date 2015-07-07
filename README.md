@@ -1,8 +1,8 @@
 ﻿Project Overview
 ================
 Artemis Consulting kicked off our agile project named "FDA Drug Monitor" by assembling the project team and discussing the 18F opportunity/problem statement. 
-To read more about the Problem and Vision Statements, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-vision)
-To read more about the Project Scope and Key Features, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-overview)
+To read more about the Problem and Vision Statements, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-vision).
+To read more about the Project Scope and Key Features, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-overview).
 
 Team and Stakeholders
 =====================
