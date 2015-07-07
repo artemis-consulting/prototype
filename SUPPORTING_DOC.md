@@ -102,7 +102,7 @@ Section-pool2-Agile
 Artemis Consulting uses agile scrum techniques for all their internal development efforts and for most of our client projects. For our agile projects, sprints are usually 1-2 week in duration but never exceed 3 weeks. In general, the shorter the sprints, the faster feedback we receive from our users and clients. This timely feedback enables the team quickly make the necessary adjustments, avoiding potential long-term and costly rework. For the FDA prototype, we decided on 2 day sprints but chose to add a 4 day sprint to accommodate the unusual nature of this project and weekend work.
 
 * We used the open source Taiga tool for agile project management and defect tracking. Taiga tends to be more ‘lightweight’ for project with relative quick turnarounds and firm deadlines. Additional information on Taiga can be found [here](https://github.com/artemis-consulting/prototype/tree/master/doc/agile-process/agile-tool-taiga).
-* All our agile artifacts related to Play 4, can be found here -> [Sprints](https://github.com/artemis-consulting/prototype/tree/master/agile-process). 
+* All our agile artifacts related to Play 4, can be found here -> [Sprints](https://github.com/artemis-consulting/prototype/tree/master/doc/agile-process). 
 
 Section-pool2-automated-testing
 -------------------------------
