@@ -185,6 +185,90 @@ For production, we used Amazon Web Services(AWS) primarily AWS has been around f
 * [http://opendatafda-artemis.cfapps.io] or [http://demo.artemisconsultinginc.com](http://opendatafda-artemis.cfapps.io) continuously deployed on [Pivotal CloudFoundry](http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry)
 * Note: this development site is not part of the Artemis Consulting RFP submission to GSA/18F, and is not guaranteed to be available during the evaluation period. 
 
+Running locally
+---------------
+### Installation and setup of Development Environment
+
+Install the following for system level dependencies for Ubuntu
+```shell
+$ sudo apt-get install python python-dev python-virtualenv apache2 libapache2-mod-wsgi git python_psycopg2 libpq-dev memcached
+```
+
+Clone this repository into desired $APP_DIR
+```shell
+$ git clone https://github.com/artemis-consulting/prototype-pool3 $APP_DIR
+$ cd $APP_DIR/code
+```
+Create the database:
+```shell
+sudo su - postgres
+createdb prototype
+createuser -P proto_user
+```
+choose 'proto_pass' as password.  If choosing a different password, keep it handy to modify in the settings file later.
+```shell
+psql
+```
+Grant privileges to the user
+```shell
+GRANT ALL PRIVILEGES ON DATABASE prototype TO proto_user;
+```
+Create a virtualenv
+```shell
+virtualenv aretmisprototype
+source $APP_DIR/artemisprototype/bin/activate
+```
+Install the Python modules using pip (https://pip.pypa.io/en/latest/installing.html#install-pip). 
+```shell
+pip install -r code/requirements.txt
+```
+
+Make changes to the settings file if needed.
+Change DATABASE settings if you changed the password for example
+Change ALLOWED_HOSTS to appropriate domain name if you're not using localhost
+
+Run django commands
+```shell
+python manage.py migrate
+python manage.py collectstatic
+```
+
+### Running Locally
+To test the install, use django's runserver command
+```shell
+python manage.py runserver
+```
+You can now open [http://localhost:8000](http://localhost:8000) in your browser.
+Set up Apache using mod_wsgi
+https://code.djangoproject.com/wiki/django_apache_and_mod_wsgi
+
+Sample apache config for django running daemon mode with virtualenv:
+```shell
+<VirtualHost *:80>
+
+ WSGIDaemonProcess prototype python-path=<PATH TO DJANGO PROJECT>:<PATH TO VIRTUALENV SITEDIR>
+ WSGIScriptAlias / <PATH TO DJANGO PROJECT/opendata_fda/wsgi.py process-group=prototype
+
+ Alias /static/ <PATH TO DJANGO PROJECT/.static/
+ 
+ <Directory <PATH TO DJANGO PROJECT/opendata_fda>
+ Require all granted
+ </Directory>
+ 
+ <Directory <PATH TO DJANGO PROJECT/.static>
+ Require all granted
+ </Directory>
+ 
+</VirtualHost>
+```
+
+Restart Apache
+```shell
+sudo service apache2 restart
+```
+
+You can now return to [http://localhost:80](http://localhost:80) in your browser.
+
 Section-pool2-monitoring
 ------------------------
 
