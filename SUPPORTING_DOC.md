@@ -189,7 +189,15 @@ Section-pool2-monitoring
 ------------------------
 
 ### Continuous Monitoring
-Using AWS for the production environment provided us additional integration benefits – such as Continuous Monitoring (CM). For this prototype, we installed CloudWatch and ThreatStack, two monitoring services that are built for AWS. CloudWatch provides basic and detailed monitoring services and can monitor resource utilization, application and database performance, log files, and overall system’s health. If time permits, we will try to monitor custom metrics of the prototype via a simple API. The service provides a dashboard with graphs, statistics, and alarms. Threat Stack is a Continuous Security Monitoring service for AWS. It protects cloud instances from intrusions and data loss by continuously monitoring and providing insights into the system.
+
+Continuous monitoring is a risk management approach to cybersecurity that maintains an accurate picture of an agency’s security risk posture, provides visibility into assets, and leverages use of automated data feeds to quantify risk, ensure effectiveness of security controls, and implement prioritized remedies. A well-designed and well-managed continuous monitoring program can effectively transform an otherwise static security control assessment and risk determination process into a dynamic process that provides essential, near real-time security status. For this prototype, we did not have the time to set up a full-blown security posture assessment. However, from past experience - this includes:
+* Vulnerability testing
+* Penetration testing
+* Server OS configuration review
+* OS / System Hardening
+* Security audits
+
+Using AWS for the production environment provided us additional integration benefits from a Continuous monitoring (CM) perspective. For this prototype, we installed and prototyped CloudWatch and ThreatStack, two monitoring services that are built for AWS. CloudWatch provides basic and detailed monitoring services and can monitor resource utilization, application and database performance, log files, and overall system’s health. If time permits, we will try to monitor custom metrics of the prototype via a simple API. The service provides a dashboard with graphs, statistics, and alarms. Threat Stack is another Continuous Security Monitoring service for AWS. It protects cloud instances from intrusions and data loss by continuously monitoring and providing insights into the system. We installed but were not able to fully explore this service. 
 
 Section-pool2-Nagios
 --------------------
