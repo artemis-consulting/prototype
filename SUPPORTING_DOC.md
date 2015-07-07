@@ -112,18 +112,18 @@ Product Roadmap/Release Strategy
 --------------------------------
 We followed the following roadmap for this project:
 * R1
-	Initial UI
-	Deployment of Drug Browse and Detail pages
-	Deployment of Adverse event Browse and Detail pages
-	Deployment of Enforcement action Browse and Detail pages
-        Defect fixes
+-	Initial UI
+-	Deployment of Drug Browse and Detail pages
+-	Deployment of Adverse event Browse and Detail pages
+-	Deployment of Enforcement action Browse and Detail pages
+-        Defect fixes
 * R2
-	Search
-	Manufacturer pages
-        Defect fixes
+-	Search
+-	Manufacturer pages
+-        Defect fixes
 * R3
-	Final UI updates
-        Defect fixes
+-	Final UI updates
+-        Defect fixes
 
 Section-pool2-Scrum
 -------------------
