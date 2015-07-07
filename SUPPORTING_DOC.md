@@ -192,6 +192,10 @@ Section-pool2-monitoring
 ### Continuous Monitoring
 Using AWS for the production environment provided us additional integration benefits – such as Continuous Monitoring (CM). For this prototype, we installed CloudWatch and ThreatStack, two monitoring services that are built for AWS. CloudWatch provides basic and detailed monitoring services and can monitor resource utilization, application and database performance, log files, and overall system’s health. If time permits, we will try to monitor custom metrics of the prototype via a simple API. The service provides a dashboard with graphs, statistics, and alarms. Threat Stack is a Continuous Security Monitoring service for AWS. It protects cloud instances from intrusions and data loss by continuously monitoring and providing insights into the system.
 
+Section-pool2-Nagios
+--------------------
+Add information about our Nagios implementation here.
+
 Section-pool2-automated-testing
 -------------------------------
 
@@ -201,101 +205,4 @@ For this prototype, the team built a suite of automated tests, which tested the 
 The Pyunit framework was used for unit testing. The team selected Selenium WebDriver for automated web testing. Jenkins was used as our continuous integration and continuous deployment tool. Upon code commits into GitHub, Jenkins automatically runs the unit test suites. If the unit tests pass, the code is automatically promoted to the testing/integration environment. Links to the Selenium testing scripts have already been provided. As mentioned earlier, the Pyunit code coverage is currently at >92%. [Pool 2 requirements F, Play 10]
 
 As mentioned earler, the deployment process is automated with the use of continuous integration systems like [Jenkins](https://jenkins-ci.org/). For the purposes of this app, Artemis used a cloud-based Jenkins installation called [CloudBees](https://www.cloudbees.com/), and a configuration management tool called [Puppet](https://puppetlabs.com/). The setup of Jenkins is shown in the following screenshots: [Jenkins Screenshot 1](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png), [Jenkins Screenshot 2](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot2.png), and [Jenkins Screenshot 3](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png).
-
-
-### Prerequisites for Development Environment
-
-nstall the following for system level dependencies for Ubuntu
-``shell
- sudo apt-get install python python-dev apache2 libapache2-mod-wsgi git python_psycopg2 libpq-dev memcached
-``
-
-lone this repository into desired $APP_DIR
-``shell
- git clone https://github.com/artemis-consulting/prototype $APP_DIR
- cd $APP_DIR/code
-``
-reate the database:
-``shell
-udo su - postgres
-reatedb prototype
-reateuser -P proto_user
-``
-hoose 'proto_pass' as password.  If choosing a different password, keep it handy to modify in the settings file later.
-``shell
-sql
-``
-rant privileges to the user
-``shell
- GRANT ALL PRIVILEGES ON DATABASE prototype TO proto_user;
-``
-reate a virtualenv
-``shell
-irtualenv artemisprototype
-ource $APP_DIR/artemisprototype/bin/activate
-``
-nstall the Python modules using pip. 
-``shell
-ip install -r code/requirements.txt
-``
-
-un django commands
-``shell
-ython manage.py migrate
-ython manage.py collectstatic
-``
-
-ake changes to the settings file if needed.
-hange DATABASE settings if you changed the password for example
-hange ALLOWED_HOSTS to appropriate domain name if you're not using localhost
-
-## Running Locally
-o test the install, use django's runserver command
-``shell
-ython manage.py runserver
-``
-ou can now open [http://localhost:8000](http://localhost:8000) in your browser.
-
-et up Apache using mod_wsgi
-ttps://code.djangoproject.com/wiki/django_apache_and_mod_wsgi
-
-ample apache config for django running daemon mode with virtualenv:
-``shell
-VirtualHost *:80>
-
-WSGIDaemonProcess prototype python-path=/apps/prototype/code:/apps/env/lib/python2.7/site-packages
-WSGIScriptAlias / /apps/prototype/code/opendata_fda/wsgi.py process-group=prototype
-
-Alias /static/ /apps/prototype/code/.static/
-
-<Directory /apps/prototype/code/opendata_fda>
-Require all granted
-</Directory>
-
-<Directory /apps/prototype/code/.static>
-Require all granted
-</Directory>
-
-/VirtualHost>
-``
-
-tart Apache
-
-ou can now open [http://localhost:80](http://localhost:80) in your browser.
-
-## Testing
-
-### Unit tests
-
-o run the unit tests, use django's test framework with coverage
-``shell
- python manage.py test core --with-coverage --cover-html --cover-package=core
-``
-he unit tests will also kick off the Selenium tests.
-ou can view the full details of coverage in a drill-down enabled report by opening:
-
-- Backend report: $APP_DIR/cover/index.html
-
-### Docker image
-If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/)
 

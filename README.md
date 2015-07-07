@@ -47,7 +47,7 @@ Our HTML experts created multiple functioning web prototypes throughout the cour
 
 Formal Accessibility Review
 ---------------------------
-Our team conducted a fairly formal accessibility review with the initial web prototype. The results of this review are [here](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/3-user-interface/accessibility/FDA%20Drug%20Monitor%20Formal%20Accessibility%20Review.pdf).
+Our team conducted a fairly formal accessibility review with the initial web prototype. The results of this review are [here](https://github.com/artemis-consulting/prototype/blob/master/doc/testing/FDA%20Drug%20Monitor%20Formal%20Accessibility%20Review.pdf).
 
 Usability Testing
 -----------------
@@ -84,18 +84,110 @@ Read more about our [Nagios server monitoring](https://github.com/artemis-consul
 Configuration Management
 ========================
 
-The team used Puppet for automated configuration management. Docker is used for container virtualization, a Docker container is available at 
+The team used Puppet for automated configuration management. Docker is used for container virtualization. A Docker container is available.
 [Pool 2 requirements G]
 
 Automated testing and deployments
 ---------------------------------
-For this prototype, we built a suite of automated tests, which tested the app as well as ensured wide code coverage (>92%). [Pool 2 requirements F, Play 10]
+For this prototype, we built a suite of automated tests, which tested the app as well as ensured wide code coverage (>92%). [Pool 2 requirements F, Play 10].
 To read more about the [testing frameworks and tools](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-automated-testing) used for the FDA Pool2 prototype.
-
-Prerequisites and Installation for Development Environment
-----------------------------------------------------------
-
 
 Running locally
 ---------------
+
+### Prerequisites for Development Environment
+
+nstall the following for system level dependencies for Ubuntu
+``shell
+ sudo apt-get install python python-dev apache2 libapache2-mod-wsgi git python_psycopg2 libpq-dev memcached
+``
+
+lone this repository into desired $APP_DIR
+``shell
+ git clone https://github.com/artemis-consulting/prototype $APP_DIR
+ cd $APP_DIR/code
+``
+reate the database:
+``shell
+udo su - postgres
+reatedb prototype
+reateuser -P proto_user
+``
+hoose 'proto_pass' as password.  If choosing a different password, keep it handy to modify in the settings file later.
+``shell
+sql
+``
+rant privileges to the user
+``shell
+ GRANT ALL PRIVILEGES ON DATABASE prototype TO proto_user;
+``
+reate a virtualenv
+``shell
+irtualenv artemisprototype
+ource $APP_DIR/artemisprototype/bin/activate
+``
+nstall the Python modules using pip. 
+``shell
+ip install -r code/requirements.txt
+``
+
+un django commands
+``shell
+ython manage.py migrate
+ython manage.py collectstatic
+``
+
+ake changes to the settings file if needed.
+hange DATABASE settings if you changed the password for example
+hange ALLOWED_HOSTS to appropriate domain name if you're not using localhost
+
+## Running Locally
+o test the install, use django's runserver command
+``shell
+ython manage.py runserver
+``
+ou can now open [http://localhost:8000](http://localhost:8000) in your browser.
+
+et up Apache using mod_wsgi
+ttps://code.djangoproject.com/wiki/django_apache_and_mod_wsgi
+
+ample apache config for django running daemon mode with virtualenv:
+``shell
+VirtualHost *:80>
+
+WSGIDaemonProcess prototype python-path=/apps/prototype/code:/apps/env/lib/python2.7/site-packages
+WSGIScriptAlias / /apps/prototype/code/opendata_fda/wsgi.py process-group=prototype
+
+Alias /static/ /apps/prototype/code/.static/
+
+<Directory /apps/prototype/code/opendata_fda>
+Require all granted
+</Directory>
+
+<Directory /apps/prototype/code/.static>
+Require all granted
+</Directory>
+
+/VirtualHost>
+``
+
+tart Apache
+
+ou can now open [http://localhost:80](http://localhost:80) in your browser.
+
+## Testing
+
+### Unit tests
+
+o run the unit tests, use django's test framework with coverage
+``shell
+ python manage.py test core --with-coverage --cover-html --cover-package=core
+``
+he unit tests will also kick off the Selenium tests.
+ou can view the full details of coverage in a drill-down enabled report by opening:
+
+- Backend report: $APP_DIR/cover/index.html
+
+### Docker image
+If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/)
 
