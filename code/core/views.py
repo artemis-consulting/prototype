@@ -1,4 +1,5 @@
 import logging
+from django.core.urlresolvers import reverse
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
@@ -58,7 +59,7 @@ def contact(request):
         contact_form = ContactInformationForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('homepage'))
         else:
             # pass the errors and data back to the form; the template will escape html as needed
             data['errors'] = contact_form.errors
