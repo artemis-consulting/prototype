@@ -1715,8 +1715,42 @@ input[type="radio"][readonly],
 input[type="checkbox"][readonly] {
   background-color: transparent;
 }
-.box-error * {
+.box-error {
   color: #dd4b39;
+  border: 1px solid #dd4b39;
+  margin-bottom: 21px;
+  padding: 20px;
+}
+.box-error h2 {
+  font-size: 15.75px;
+  line-height: 22.05px;
+  font-weight: bold;
+  font-weight: normal;
+  color: #333333;
+  color: #dd4b39;
+}
+.box-error h2 small {
+  font-weight: normal;
+  line-height: 1;
+  color: #666;
+  font-size: 14px;
+}
+@media screen and (max-width: 480px) {
+  .box-error h2 small {
+    display: block;
+    margin-top: 5px;
+  }
+}
+.box-error h2 small.block {
+  display: block;
+  margin-top: 5px;
+}
+.box-error ul {
+  margin-bottom: 0;
+}
+.box-error ul li a {
+  color: #dd4b39;
+  text-decoration: underline;
 }
 .error > span:first-child {
   color: #dd4b39;
@@ -2785,7 +2819,7 @@ label.readonly {
   max-height: 55px;
   overflow: hidden;
 }
-.expanded .text {
+.expanded.text {
   max-height: none;
   overflow: visible;
 }
@@ -2902,5 +2936,147 @@ label.readonly {
   .fda-alpha-nav ol li.G,
   .fda-alpha-nav ol li.Q {
     border-left: none;
+  }
+}
+.default-pagination-font-size {
+  font-size: 14px;
+}
+@media screen and (max-width: 810px) {
+  .default-pagination-font-size {
+    font-size: 12px;
+  }
+}
+.default-pagination-width {
+  width: 30px;
+}
+@media screen and (max-width: 810px) {
+  .default-pagination-width {
+    width: 26px;
+  }
+}
+.next-prev-pagination-width {
+  width: 50px;
+}
+@media screen and (max-width: 810px) {
+  .next-prev-pagination-width {
+    width: 40px;
+  }
+}
+.default-pagination-height {
+  height: 30px;
+  line-height: 30px;
+}
+@media screen and (max-width: 810px) {
+  .default-pagination-height {
+    height: 26px;
+    line-height: 26px;
+  }
+}
+.fda-pagination-bar {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.fda-pagination-bar .fda-page-display {
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-page-display {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-page-display {
+    height: 26px;
+    line-height: 26px;
+  }
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-page-display {
+    float: none;
+  }
+}
+.fda-pagination-bar .fda-pagination {
+  margin-left: 0;
+  list-style: none;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border: none !important;
+  text-align: right;
+}
+.fda-pagination-bar .fda-pagination .plain {
+  margin-left: 25px;
+  list-style: none;
+}
+.fda-pagination-bar .fda-pagination li {
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  line-height: normal !important;
+  font-weight: normal !important;
+  font-size: 14px;
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-pagination li {
+    font-size: 12px;
+  }
+}
+.fda-pagination-bar .fda-pagination li span,
+.fda-pagination-bar .fda-pagination li a {
+  display: inline-block;
+  border: 1px solid #005f9f !important;
+  color: #005f9f !important;
+  text-align: center;
+  padding: 0 !important;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-pagination li span,
+  .fda-pagination-bar .fda-pagination li a {
+    width: 26px;
+  }
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-pagination li span,
+  .fda-pagination-bar .fda-pagination li a {
+    height: 26px;
+    line-height: 26px;
+  }
+}
+.fda-pagination-bar .fda-pagination li span.fda-pagination-next,
+.fda-pagination-bar .fda-pagination li span.fda-pagination-prev,
+.fda-pagination-bar .fda-pagination li a.fda-pagination-next,
+.fda-pagination-bar .fda-pagination li a.fda-pagination-prev {
+  width: 50px;
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-pagination li span.fda-pagination-next,
+  .fda-pagination-bar .fda-pagination li span.fda-pagination-prev,
+  .fda-pagination-bar .fda-pagination li a.fda-pagination-next,
+  .fda-pagination-bar .fda-pagination li a.fda-pagination-prev {
+    width: 40px;
+  }
+}
+.fda-pagination-bar .fda-pagination li span {
+  color: #CCCCCC !important;
+  border-color: #CCCCCC !important;
+  background-color: #F5F5F5;
+  cursor: not-allowed;
+}
+.fda-pagination-bar .fda-pagination li.disabled span {
+  background-color: #005f9f;
+  border-color: #005f9f !important;
+  color: #FFFFFF !important;
+  font-weight: bold;
+}
+@media screen and (max-width: 810px) {
+  .fda-pagination-bar .fda-pagination {
+    text-align: center;
   }
 }
