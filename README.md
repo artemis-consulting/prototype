@@ -87,7 +87,9 @@ Read more about our [Nagios server monitoring](https://github.com/artemis-consul
 Configuration Management
 ========================
 
-The team used Puppet for automated configuration management. Docker is used for container virtualization. A Docker container is available.
+The team used Puppet for automated configuration management. Docker is used for container virtualization. 
+If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/blob/master/deployment/Dockerfile)
+
 [Pool 2 requirements G]
 
 Automated testing and deployments
@@ -99,7 +101,3 @@ Running locally and testing
 ---------------------------
 
 Complete instructions on how to run this prototype locally are [here](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#running-locally)
-
-### Docker image
-If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/)
-
