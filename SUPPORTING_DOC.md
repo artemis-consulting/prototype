@@ -191,7 +191,7 @@ Running locally
 
 Install the following for system level dependencies for Ubuntu
 ```shell
-$ sudo apt-get install python python-dev python-virtualenv apache2 libapache2-mod-wsgi git python_psycopg2 libpq-dev memcached
+$ sudo apt-get install python python-dev python-virtualenv apache2 libapache2-mod-wsgi git python-psycopg2 libpq-dev memcached postgresql postgresql-contrib
 ```
 
 Clone this repository into desired $APP_DIR
