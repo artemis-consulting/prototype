@@ -69,6 +69,9 @@ Tools and Technology Stack
 ==========================
 Click [here to see the details of the tools and full technology stack](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-tools) used by the team for the FDA prototype.
 
+It is important to note that we added tools and technologies based on our initial user testing feedback, and as the project progressed. We added an in-memory application caching server, memcached, once we realized the initial page loads for our landing pages were taking too much time since we had to call out to OpenFDA's API to build the lists. We added Postgres to our tools once we realized that we needed to persist certain information. 
+
+
 Hosting environment
 ===================
 During Sprint 0, the team worked on deploying the hosting environment for both test and production.  
