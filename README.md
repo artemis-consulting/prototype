@@ -95,23 +95,10 @@ Automated testing and deployments
 For this prototype, we built a suite of automated tests, which tested the app as well as ensured wide code coverage (>92%). [Pool 2 requirements F, Play 10].
 To read more about the [testing frameworks and tools](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-automated-testing) used for the FDA Pool2 prototype.
 
-Running locally
----------------
+Running locally and testing
+---------------------------
 
 Complete instructions on how to run this prototype locally are [here](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#running-locally)
-
-### Testing
-
-#### Unit tests
-
-To run the unit tests, use django's test framework with coverage
-```shell
-python manage.py test core --with-coverage --cover-html --cover-package=core
-```
-The unit tests will also kick off the selenium tests.
-You can view the full details of coverage in a drill-down enabled report by opening:
-
- - Backend report: $APP_DIR/cover/index.html
 
 ### Docker image
 If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/)
