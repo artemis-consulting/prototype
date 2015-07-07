@@ -163,14 +163,14 @@ Slack was selected for chatting and online collaboration, Taiga.io for Agile pro
 We used Pivotal Web Services CloudFoundry as the development/test environment and Amazon Web Services as our production environment. Developers coded on their local machines (running Ubuntu/MacOS) to code the prototype.
 
 #### Continuous Integration
-- [Jenkins](http://jenkins-ci.org/)
+- For this prototype, we used [Jenkins](http://jenkins-ci.org/) for CI.
 
 #### Application Monitoring
-- [Nagios](https://www.nagios.org/)
+- For this prototype, we installed and used [Nagios](https://www.nagios.org/) for application monitoring.
 
 #### Continuous Deployment
-- [Jenkins](http://jenkins-ci.org/)
-- [Pivotal CloudFoundry](http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry)
+- As mentioned above, we used [Jenkins](http://jenkins-ci.org/) for CD.
+- Our dev/test servers were at [Pivotal CloudFoundry](http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry)
 
 Section-pool2-hosting
 ---------------------
