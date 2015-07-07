@@ -140,20 +140,20 @@ Slack was selected for chatting and online collaboration, Taiga.io for Agile pro
 ### Tools 
 Slack was selected for chatting and online collaboration, Taiga.io for Agile project management, and GitHub for code versioning. The modern technology stack chosen by team is all open source with hosting being the only exception. By selecting the technology stack below, the team strongly feels that it can develop and prototype effectively while delivering a product that is cost-effective and can scale easily. Play [8]
 
-### Initial technology stack: 
+### Technology stack: 
 #### Front-end development
-* Django templates 1.8.2
-* JavasScript/jQuery
-* Bootstrap/Bootswatch Paper theme
-* Highcharts chart and mapping widgets
+* Django templates 1.8.2 (open source)
+* JavaScript/jQuery (both open source)
+* Bootstrap/Bootswatch Paper theme (open source)
+* Highcharts chart and mapping widgets (open source)
 * (Proprietary) accessibility toolkit
 
 #### Back-end development
-* Apache 2.4.7
-* Python 2.7.10
-* Django 1.8.2
-* Memcached 1.4.27 
-* Postgres 9.4
+* Apache 2.4.7 (open source)
+* Python 2.7.10 (open source)
+* Django 1.8.2 (open source)
+* Memcached 1.4.27 (open source)
+* Postgres 9.4 (open source)
 
 #### Configuration Management
 * [Docker](http://docker.com): Provides portable containers of pre-configured software
