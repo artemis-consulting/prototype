@@ -39,8 +39,6 @@ During the story planning meetings, the following prospective users where identi
 
 To read the full UCD approach, techniques, and results, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-ucd)
 
-Click on the links to see the [final user personas](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/2-user-personas-and-journeys/18f-personas-final-6-23-2015.pdf) and [final user journeys](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/2-user-personas-and-journeys/18f-user-journeys-final-6-23-2015.pdf).
-
 The team strongly felt that applying the UCD techniques in the sections previously mentioned satisfy Play [1] and [2].
 
 Mobile-first Responsive Design
