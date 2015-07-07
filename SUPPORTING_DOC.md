@@ -269,6 +269,20 @@ sudo service apache2 restart
 
 You can now return to [http://localhost:80](http://localhost:80) in your browser.
 
+
+### Testing
+
+#### Unit tests
+
+To run the unit tests, use django's test framework with coverage
+```shell
+python manage.py test core --with-coverage --cover-html --cover-package=core
+```
+The unit tests will also kick off the selenium tests.
+You can view the full details of coverage in a drill-down enabled report by opening:
+
+ - Backend report: $APP_DIR/cover/index.html
+
 Section-pool2-monitoring
 ------------------------
 
