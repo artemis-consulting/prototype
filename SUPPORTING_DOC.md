@@ -112,17 +112,17 @@ Product Roadmap/Release Strategy
 --------------------------------
 We followed the following roadmap for this project:
 * R1:
-	Initial UI
-	Deployment of Drug Browse and Detail pages
-	Deployment of Adverse event Browse and Detail pages
-	Deployment of Enforcement action Browse and Detail pages
+	Initial UI;
+	Deployment of Drug Browse and Detail pages;
+	Deployment of Adverse event Browse and Detail pages;
+	Deployment of Enforcement action Browse and Detail pages;
         Defect fixes
 * R2:
- 	Search
- 	Manufacturer pages
-        Defect fixes
+ 	Search;
+ 	Manufacturer pages;
+        Defect fixes;
 * R3:
-	Final UI updates
+	Final UI updates;
         Defect fixes
 
 Section-pool2-Scrum
@@ -130,7 +130,7 @@ Section-pool2-Scrum
 ### Scrum ceremonies
 
 Daily standups at 10:30am, 2-day sprints, sprint planning every other day, review, retro, and release planning to occur and the end of each sprint, entire team to attend all meetings. Backlog grooming and reprioritization happened daily. 
-To view all our agile artifacts, click [here](https://github.com/artemis-consulting/prototype/tree/master/agile-process). 
+To view all our agile artifacts, click [here](https://github.com/artemis-consulting/prototype/tree/master/doc/agile-process). 
 
 
 Section-pool2-tools
@@ -138,28 +138,26 @@ Section-pool2-tools
 Slack was selected for chatting and online collaboration, Taiga.io for Agile project management, and GitHub for code versioning. The modern technology stack chosen by team is all open source with hosting being the only exception. By selecting the technology stack below, the team strongly feels that it can develop and prototype effectively while delivering a product that is cost-effective and can scale easily. Play [8]
 
 ### Tools 
-Slack was selected for chatting and online collaboration, Taiga.io for Agile project management, and GitHub for code versioning. The modern technology stack chosen by team is all open source with hosting being the only exception. By selecting the technology stack below, the team strongly feels that it can develop and prototype effectively while delivering a product that is cost-effective and can scale easily. [Play 8](Play 8) 
+Slack was selected for chatting and online collaboration, Taiga.io for Agile project management, and GitHub for code versioning. The modern technology stack chosen by team is all open source with hosting being the only exception. By selecting the technology stack below, the team strongly feels that it can develop and prototype effectively while delivering a product that is cost-effective and can scale easily. Play [8]
 
-### Initial technology stack: See See final [frontend tech stack here](frontend tech stack) and the [backend stack here](backend tech stack) 
+### Initial technology stack: 
 #### Front-end development
-Django templates 1.8.2
-JavasScript/jQuery
-Bootstrap/Bootswatch Paper theme
-Highcharts chart and mapping widgets
-(Proprietary) accessibility toolkit
+* Django templates 1.8.2
+* JavasScript/jQuery
+* Bootstrap/Bootswatch Paper theme
+* Highcharts chart and mapping widgets
+* (Proprietary) accessibility toolkit
 
 #### Back-end development
-Apache 2.4.7
-Python 2.7.10
-Django 1.8.2
-Memcached 1.4.27 
-Postgres 9.4
+* Apache 2.4.7
+* Python 2.7.10
+* Django 1.8.2
+* Memcached 1.4.27 
+* Postgres 9.4
 
 #### Configuration Management
-* [Docker](http://docker.com)
-   Provides portable containers of pre-configured software
-* Puppet
-   Manage ‘Ubuntu’ images for developers - automating the developers' workstation configurations
+* [Docker](http://docker.com): Provides portable containers of pre-configured software
+* [Puppet](https://puppetlabs.com/): Manage ‘Ubuntu’ images for developers - automating the developers' workstation configurations
 
 #### Environments 
 We used Pivotal Web Services CloudFoundry as the development/test environment and Amazon Web Services as our production environment. Developers coded on their local machines (running Ubuntu/MacOS) to code the prototype.
@@ -184,8 +182,8 @@ During Sprint 0, the team performed various user analysis tasks and worked on de
 For production, we used Amazon Web Services(AWS) primarily AWS has been around for almost a decade now and offers highly reliable, scalable, and relatively inexpensive cloud hosting services.  The AWS management console is simple and relative straightforward web-based tool. Another driver for using AWS is the government’s interest in migrating parts of their IT infrastructure into the AWS GovCloud. AWS was officially approved for government use in 2013.
 
 ### Prototype
-[http://opendatafda-artemis.cfapps.io or http://demo.artemisconsultinginc.com](http://opendatafda-artemis.cfapps.io) continuously deployed on [Pivotal CloudFoundry](http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry)
-Note: this development site is not part of the Artemis Consulting RFP submission to GSA/18F, and is not guaranteed to always be available during the evaluation period. 
+* [http://opendatafda-artemis.cfapps.io] or [http://demo.artemisconsultinginc.com](http://opendatafda-artemis.cfapps.io) continuously deployed on [Pivotal CloudFoundry](http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry)
+* Note: this development site is not part of the Artemis Consulting RFP submission to GSA/18F, and is not guaranteed to be available during the evaluation period. 
 
 Section-pool2-monitoring
 ------------------------
@@ -202,8 +200,9 @@ Section-pool2-automated-testing
 
 ### Automated testing and deployments
 
-For this prototype, the team built a suite of automated tests, which tested the app as well as ensured wide code coverage (>92%). [Pool 2 requirements F, Play 10]
-The Pyunit framework was used for unit testing. The team selected Selenium WebDriver for automated web testing. Jenkins was used as our continuous integration and continuous deployment tool. Upon code commits into GitHub, Jenkins automatically runs the unit test suites. If the unit tests pass, the code is automatically promoted to the testing/integration environment. Links to the Selenium testing scripts have already been provided. As mentioned earlier, the Pyunit code coverage is currently at >92%. [Pool 2 requirements F, Play 10]
-
-As mentioned earler, the deployment process is automated with the use of continuous integration systems like [Jenkins](https://jenkins-ci.org/). For the purposes of this app, Artemis used a cloud-based Jenkins installation called [CloudBees](https://www.cloudbees.com/), and a configuration management tool called [Puppet](https://puppetlabs.com/). The setup of Jenkins is shown in the following screenshots: [Jenkins Screenshot 1](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png), [Jenkins Screenshot 2](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot2.png), and [Jenkins Screenshot 3](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png).
+* For this prototype, the team built a suite of automated tests, which tested the app as well as ensured wide code coverage (>92%). [Pool 2 requirements F, Play 10]
+* The Pyunit framework was used for unit testing.  As mentioned earlier, the Pyunit code coverage is currently at >92%. [Pool 2 requirements F, Play 10]
+* The team used Selenium WebDriver for automated web testing.  Links to the Selenium testing scripts have already been provided earlier in this document. 
+* Jenkins was used as our continuous integration and continuous deployment tool. Upon code commits into GitHub, Jenkins automatically runs the unit test suites. If the unit tests pass, the code is automatically promoted to the testing/integration environment. 
+For the purposes of this app, Artemis used a cloud-based Jenkins installation called [CloudBees](https://www.cloudbees.com/), and a configuration management tool called [Puppet](https://puppetlabs.com/). The setup of Jenkins instance on Cloudbees is shown in the following screenshots: [Jenkins Screenshot 1](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png), [Jenkins Screenshot 2](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot2.png), and [Jenkins Screenshot 3](https://github.com/artemis-consulting/prototype/blob/master/deployment/CloudBeesScreenshot1.png).
 
