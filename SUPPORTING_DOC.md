@@ -233,7 +233,7 @@ python manage.py migrate
 python manage.py collectstatic
 ```
 
-### Running Locally
+### testing your install
 To test the install, use django's runserver command
 ```shell
 python manage.py runserver
