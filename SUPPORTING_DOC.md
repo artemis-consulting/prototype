@@ -11,6 +11,8 @@ Since the original RFP had a due date of 06/26/2015, the team had to place bound
  * Off-line browsing (e.g. keep the service in case the FDA APIs are down) 
  * Full-blown load testing
  * Content Delivery Network for static content
+
+### Initial scope
 Defining the project scope early on helped the team set stakeholders’ expectations while providing sufficient details and features for the team to focus on.
 The team determined that instead of using a single API from OpenFDA, what would really serve the public is a website that consumes all the APIs that OpenFDA offers in one target area. Since the APIs are divided into "Drugs", "Devices" and "Food" with "Drugs" having the most APIs, we decided to build a website that consumed all 3 Drugs-related APIs, and offer the users of the site a chance to see the interconnections betwen drug labels, drug adverse reactions and drug recalls. The interconnection would be from each API's dataset to the other API's dataset using targeted queries. In the end based on user testing with our doctor and lawyer subject matter experts(SMEs), we also decided to add a completely new Drug Manufacturers section on the site, which further interconnected the 3 API datasets together but using derived data from each dataset.
 The team also decided to support two navigation paradigms for the 4 data sets: Browse and Search. Users could look at a list of what's available for each data set, or could search for an item of interest in each data set. Once the user found an item, the user would still be able to navigate to the other connected data from each item.
@@ -99,9 +101,8 @@ Section-pool2-Agile
 
 Artemis Consulting uses agile scrum techniques for all their internal development efforts and for most of our client projects. For our agile projects, sprints are usually 1-2 week in duration but never exceed 3 weeks. In general, the shorter the sprints, the faster feedback we receive from our users and clients. This timely feedback enables the team quickly make the necessary adjustments, avoiding potential long-term and costly rework. For the FDA prototype, we decided on 2 day sprints but chose to add a 4 day sprint to accommodate the unusual nature of this project and weekend work.
 
-* We used the open source Taiga tool for agile project management and defect tracking. Taiga tends to be more ‘lightweight’ for project with relative quick turnarounds and firm deadlines. Additional information on Taiga can be found [here](https://github.com/artemis-consulting/prototype/tree/master/agile-process/agile-tool-taiga).
+* We used the open source Taiga tool for agile project management and defect tracking. Taiga tends to be more ‘lightweight’ for project with relative quick turnarounds and firm deadlines. Additional information on Taiga can be found [here](https://github.com/artemis-consulting/prototype/tree/master/doc/agile-process/agile-tool-taiga).
 * All our agile artifacts related to Play 4, can be found here -> [Sprints](https://github.com/artemis-consulting/prototype/tree/master/agile-process). 
-* Our team did fairly extensive user testing with doctors and lawyers. Here are the links to the [User Interview Questions](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/4-user-interviews/User%20Interview%20Questions.pdf), the [user testing feedback and our team's remediation comments from a practising pharmaceutical industry lawyer](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/4-user-interviews/User%20Interview%20Questions-Response1-Pharmaceutical-Company-Lawyer.pdf)  and the [user testing feedback and our team's remediation comments from a practising doctor](https://github.com/artemis-consulting/prototype/blob/master/user-centered-design/4-user-interviews/User%20Interview%20Questions-Response2-and-Remediation-Doctor-MD.pdf).
 
 Section-pool2-automated-testing
 -------------------------------

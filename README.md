@@ -95,7 +95,7 @@ To read more about the [testing frameworks and tools](https://github.com/artemis
 Running locally
 ---------------
 
-### Prerequisites for Development Environment
+### Installation and setup of Development Environment
 
 Install the following for system level dependencies for Ubuntu
 ```shell
