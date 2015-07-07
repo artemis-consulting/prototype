@@ -72,21 +72,21 @@ Here is an overview of the results from Agile UX testing conducted on 06/12/15.
 * It’s not initially clear what or why I am presented with this list (Replace initial text with something like the following:
   Select a drug from the list to view current drug related information).
 * I find the list of drugs too long and in no apparent order (Put the drugs in alphabetical order and in a list group with the badge option for the number of drugs. Apply the materials theme to the basic sample below).
-* I don’t know how to get back to the search from either a list or detail page (perhaps ad a “back to search” arrow/button).
+* I don’t know how to get back to the search from either a list or detail page (perhaps add a “back to search” arrow/button).
 
 ### Adverse Events Page
 * I find the subheads/instructions to be too large (The header should not dominate the page and should be a smaller than the “branding” text in the nav bar. They should appear as informational/instructions).
 * It ‘s not initially clear what or why I am presented with this list (Replace initial text with something like the following:
   Select an event from the list to view current event related information).
 * I find the list of events to be long and in no apparent order (Put the drugs in alphabetical order and in a list group with the badge option for the number of drugs. Apply the materials theme to the basic sample below).
-* I don’t know how to get back to the search from either a list or detail page (perhaps ad a “back to search” arrow/button).
+* I don’t know how to get back to the search from either a list or detail page (perhaps add a “back to search” arrow/button).
 
 ### Enforcement Reports Page
 * The subheads/instructions to be too large (The header should not dominate the page and should be a smaller than the “branding” text in the nav bar. They should appear as informational/instructions).
 * It’s not initially clear what or why I am presented with this list (Replace initial text with something like the following:
   Select a state on the map to view current enforcement reports .
 * I find the list of states below the map to be long and in no apparent order (Put the drugs in alphabetical order and in a list group with the badge option for the number of drugs. Apply the materials theme to the basic sample below).
-* I don’t know how to get back to the search from either a list or detail page (perhaps ad a “back to search” arrow/button).
+* I don’t know how to get back to the search from either a list or detail page (perhaps add a “back to search” arrow/button).
 
 ### About Page
 * I would like more information about the purpose, use, and creation of this web app (Add an About page with some text, something like the following:
