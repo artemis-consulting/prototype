@@ -9,7 +9,7 @@
     	<span class="fda-page-display">{{ result_paginator.page_display }}</span>
     	{% if result_paginator.pages > 1 %}
       	<ul class="fda-pagination">
-		  <li {% if result_paginator.has_previous %}{% else %}class="fda-pagination-disabled"{% endif %}><a href="?q={{q}}&amp;page={{result_paginator.prev}}" class="fda-pagination-prev">prev</a></li>
+		  <li {% if result_paginator.has_previous %}{% else %}class="fda-pagination-disabled"{% endif %}><a href="?q={{q}}&amp;page={{result_paginator.prev}}&amp;tab={{tab_name}}" class="fda-pagination-prev">prev</a></li>
 		
 		  {% for page_number in result_paginator.pagination_display %}
 		
@@ -19,12 +19,12 @@
 		  {% ifequal page_number result_paginator.page %}
 		  <li class="disabled"><span>{{page_number}}</span></li>
 		  {% else %}
-		  <li><a href="?q={{q}}&amp;page={{page_number}}">{{page_number}}</a></li>
+          <li><a href="?q={{q}}&amp;page={{page_number}}&amp;tab={{tab_name}}">{{page_number}}</a></li>
 		  {% endifequal %}
 		  {% endifequal %}
 		  {% endfor %}
-		
-		  <li {% if result_paginator.has_next %}{% else %}class="fda-pagination-disabled"{% endif %}><a href="?q={{q}}&amp;page={{result_paginator.next}}" class="fda-pagination-next">next</a></li>  
+
+          <li {% if result_paginator.has_next %}{% else %}class="fda-pagination-disabled"{% endif %}><a href="?q={{q}}&amp;page={{result_paginator.next}}&amp;tab={{tab_name}}" class="fda-pagination-next">next</a></li>	
 		</ul>
         {% endif %}
 	</div>

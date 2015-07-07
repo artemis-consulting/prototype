@@ -35,7 +35,7 @@
 
         <!-- tab 1 -->
         <div id="labels">
-            {% include 'core/pagination.html' with result_list=labels result_paginator=labels_paginator %}
+            {% include 'core/pagination.html' with tab_name='labels' result_list=labels result_paginator=labels_paginator %}
 
             <div class="fda-accordion-interface">
                 <!-- accordion panel groups -->
@@ -45,7 +45,7 @@
 
         <!-- tab 2 -->
         <div id="events">
-            {% include 'core/pagination.html' with result_list=events result_paginator=events_paginator %}
+            {% include 'core/pagination.html' with tab_name='events' result_list=events result_paginator=events_paginator %}
 
             <div class="fda-accordion-interface">
                 <!-- accordion panel groups -->
@@ -55,7 +55,7 @@
 
         <!-- tab 3 -->
         <div id="enforcements">
-            {% include 'core/pagination.html' with result_list=enforcements result_paginator=enforcements_paginator %}
+            {% include 'core/pagination.html' with tab_name='enforcements' result_list=enforcements result_paginator=enforcements_paginator %}
 
             <div class="fda-accordion-interface">
                 <!-- accordion panel groups -->
@@ -66,5 +66,20 @@
 {% endblock %}
 
 {% block extra_js %}
+    <script>
+    $(document).ready(function() {
+        var tab_number;
+        {% if tab == 'events' %}
+            tab_number = 1;
+        {% elif tab == 'enforcements' %}
+            tab_number = 2;
+        {% else %}
+            tab_number = 0;
+        {% endif %}
+
+        $("#fda-tabs-interface").tabs("option", "active", tab_number);
+    });
+    </script>
+
 {% endblock %}
 

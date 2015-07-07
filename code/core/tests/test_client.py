@@ -131,6 +131,13 @@ class ApiResultTestCase(TestCase):
         value = result.lookup(test_dictionary, test_string)
         self.assertEquals(value, 'testing')
 
+    def test_lookup_missing_keylist(self):
+        test_dictionary = json.loads('{"openfda": {"brand_name": "testing"}}')
+        test_string = 'openfda'
+        result = ApiResult({})
+        value = result.lookup(test_dictionary, test_string, "xyz")
+        self.assertEquals(value, 'xyz')
+
     def test_lookup_default(self):
         test_dictionary = json.loads('{"openfda": {"brand_name": "testing"}}')
         test_string = 'openfda.brand'

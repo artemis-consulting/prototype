@@ -105,12 +105,24 @@ class ApiClient(object):
 
         return None
 
-    def search_labels(self, query_term, page):
+    def search_labels(self, query_term, page, tab=None):
         self.logger.debug("Searching for '%s'", query_term)
         data = {}
+
+        labels_page = 1
+        events_page = 1
+        enforcements_page = 1
+
+        if tab == 'events':
+            events_page = page
+        elif tab == 'enforcements':
+            enforcements_page = page
+        else:
+            labels_page = page
+
         # get general drug info
         sub_data = self.get_sub_data("%s?search=openfda.brand_name:\"%s\"" % (
-            API_TYPES['labels'], urllib.quote(query_term)), page)
+            API_TYPES['labels'], urllib.quote(query_term)), labels_page)
         if sub_data:
             label_pagination, labels = sub_data.clean_labels()
             data['labels'] = labels
@@ -118,7 +130,7 @@ class ApiClient(object):
 
         # get additional event info
         sub_data = self.get_sub_data("%s?search=patient.drug.medicinalproduct:\"%s\"" % (
-            API_TYPES['events'], urllib.quote(query_term)), page)
+            API_TYPES['events'], urllib.quote(query_term)), events_page)
         if sub_data:
             events_pagination, events = sub_data.clean_events()
             data['events'] = events
@@ -126,7 +138,7 @@ class ApiClient(object):
 
         # get additional enforcement info
         sub_data = self.get_sub_data("%s?search=product_description:\"%s\"" % (
-            API_TYPES['enforcements'], urllib.quote(query_term)), page)
+            API_TYPES['enforcements'], urllib.quote(query_term)), enforcements_page)
         if sub_data:
             enforcements_pagination, enforcements = sub_data.clean_enforcements()
             data['enforcements'] = enforcements
@@ -173,16 +185,27 @@ class ApiClient(object):
                 API_TYPES['enforcements'], query_term, count_string))
         return data
 
-    def search_manufacturers(self, query_term, page):
+    def search_manufacturers(self, query_term, page, tab=None):
         self.logger.debug("Searching for manufacturer '%s'", query_term)
         data = {}
+
+        labels_page = 1
+        events_page = 1
+        enforcements_page = 1
+
+        if tab == 'events':
+            events_page = page
+        elif tab == 'enforcements':
+            enforcements_page = page
+        else:
+            labels_page = page
 
         # strip commas - api can't handle them in search terms
         query_term = query_term.replace(",", '')
 
         # get labels from this manufacturer
         sub_data = self.get_sub_data("%s?search=openfda.manufacturer_name:\"%s\"" % (
-            API_TYPES['labels'], urllib.quote(query_term)), page)
+            API_TYPES['labels'], urllib.quote(query_term)), labels_page)
         if sub_data:
             labels_pagination, labels = sub_data.clean_labels()
             data['labels'] = labels
@@ -190,7 +213,7 @@ class ApiClient(object):
 
         # get additional event info
         sub_data = self.get_sub_data("%s?search=patient.drug.openfda.manufacturer_name:\"%s\"" % (
-            API_TYPES['events'], urllib.quote(query_term)), page)
+            API_TYPES['events'], urllib.quote(query_term)), events_page)
         if sub_data:
             events_pagination, events = sub_data.clean_events()
             data['events'] = events
@@ -203,7 +226,7 @@ class ApiClient(object):
         # %22Pharmacia+and+Upjohn+Company%22+recalling_firm:%22Target%22 is broken
 
         sub_data = self.get_sub_data("%s?search=openfda.manufacturer_name:\"%s\"" % (
-            API_TYPES['enforcements'], urllib.quote(query_term)), page)
+            API_TYPES['enforcements'], urllib.quote(query_term)), enforcements_page)
         if sub_data:
             enforcements_pagination, enforcements = sub_data.clean_enforcements()
             data['enforcements'] = enforcements
@@ -272,17 +295,19 @@ class ApiResult(object):
         """
         key_list = key_string.split('.')[::-1]
         try:
-            return self._lookup(d, key_list)
+            value = self._lookup(d, key_list)
+            return value if value else default
         except KeyError:
             return default
 
     def _lookup(self, data_dict, key_list):
-        key = key_list.pop()
-        data = data_dict[key]
-        if isinstance(data, dict):
-            return self._lookup(data, key_list)
-        else:
-            return data
+        if key_list:
+            key = key_list.pop()
+            data = data_dict[key]
+            if isinstance(data, dict):
+                return self._lookup(data, key_list)
+            else:
+                return data
 
     def clean_labels(self):
         """
@@ -336,7 +361,7 @@ class ApiResult(object):
             patient_data["patient_onset_age"] = "%s%s" % (self.lookup(d, 'patient.patientonsetstage', ""),
                                                           self.lookup(d, 'patientonsetageunit', ""))
             patient_data["patient_sex"] = self.male_or_female(self.lookup(d, 'patient.patientsex'))
-            patient_data["patient_death_details"] = self.lookup(d, 'patient.patientdeath')
+            patient_data["patient_death_details"] = self.format_date(self.lookup(d, 'patient.patientdeath.patientdeathdate'))
 
             label_data = {}
             drugs = self.lookup(d, 'patient.drug')
@@ -392,6 +417,7 @@ class ApiResult(object):
             return "No"
 
     def male_or_female(self, value):
+
         if value == "1":
             return 'Male'
         elif value == "2":
