@@ -22,9 +22,9 @@ His responsibilities include:
 * Ensuring that key features are built
 * Managing the features and defect backlogs on a daily basis
 * Setting priorities and providing the definition of "done" 
-[Pool 2, requirement A, B and Play 6 ]
+[Pool 2, requirement A, B and Play 6]
 
-The team members assembled for this project are experts in their respective disciplines. [Pool 2, requirement A and Play 7 ]
+The team members assembled for this project are experts in their respective disciplines. [Pool 2, requirement A and Play 7]
 
 User-Centered Design 
 ====================
@@ -37,7 +37,7 @@ During the story planning meetings, the following prospective users where identi
 * Federal regulators and watchdog agencies
 * State regulators
 
-To read the full UCD approach, techniques, and results, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-ucd)
+To read the full UCD approach, techniques, and results, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-ucd).
 
 The team strongly felt that applying the UCD techniques in the sections previously mentioned satisfy Play [1] and [2].
 
@@ -51,7 +51,7 @@ Our team conducted a fairly formal accessibility review with the initial web pro
 
 Usability Testing
 -----------------
-Agile usability testing was integrated into the design and prototyping process so that the team could identify and fix user experience problems before they become baked in and expensive to address. To read the full UX testing approach, techniques, and results, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-ux-testing)
+Agile usability testing was integrated into the design and prototyping process so that the team could identify and fix user experience problems before they become baked in and expensive to address. To read the full UX testing approach, techniques, and results, go to [the supporting document](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#section-pool2-ux-testing).
 
 Agile Delivery Approach
 =======================
@@ -88,8 +88,7 @@ Configuration Management
 ========================
 
 The team used Puppet for automated configuration management. Docker is used for container virtualization. 
-If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/tree/master/deployment/docker)
-
+If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/tree/master/deployment/docker).
 [Pool 2 requirements G]
 
 Automated testing and deployments
@@ -100,4 +99,4 @@ To read more about the [testing frameworks and tools](https://github.com/artemis
 Running locally and testing
 ---------------------------
 
-Complete instructions on how to run this prototype locally are [here](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#running-locally)
+Complete instructions on how to run this prototype locally are [here](https://github.com/artemis-consulting/prototype/blob/master/SUPPORTING_DOC.md#running-locally).
