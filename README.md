@@ -88,7 +88,7 @@ Configuration Management
 ========================
 
 The team used Puppet for automated configuration management. Docker is used for container virtualization. 
-If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/blob/master/deployment/Dockerfile)
+If you use [Docker](https://www.docker.com/) for virtualization, a Docker container is [available] (https://github.com/artemis-consulting/prototype/tree/master/deployment/docker)
 
 [Pool 2 requirements G]
 
